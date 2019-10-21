@@ -8,7 +8,7 @@ class LeaderBoard extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/topten")
+    fetch("https://map-quiz-backend.herokuapp.com/topten")
       .then(resp => resp.json())
       .then(data => this.setState({ leaders: data }));
   }

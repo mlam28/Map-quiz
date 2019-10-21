@@ -69,7 +69,7 @@ class QuizContainer extends Component {
   };
 
   resetPlay = () => {
-    fetch("http://localhost:3000/randomtwenty")
+    fetch("https://map-quiz-backend.herokuapp.com/randomtwenty")
       .then(resp => resp.json())
       .then(cities => this.setState({ cities: cities }));
 

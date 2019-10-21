@@ -14,7 +14,7 @@ class StatsContainer extends Component {
   componentDidMount() {
     
     if (localStorage.getItem("token")) {
-      fetch(`http://localhost:3000/token`, {headers: {"Authentication": `${localStorage.getItem("token")}`}})
+      fetch(`https://map-quiz-backend.herokuapp.com/token`, {headers: {"Authentication": `${localStorage.getItem("token")}`}})
         .then(resp => resp.json())
         .then(data => {console.log(data); this.setState({ games: data.games })});
     } else return null;

@@ -27,7 +27,7 @@ class FormContainer extends React.Component {
 
   handleSubmitFindUser = () => {
     let obj = {headers: {"Authentication": this.state.password}}
-    fetch(`http://localhost:3000/users/${this.state.username}`, obj)
+    fetch(`https://map-quiz-backend.herokuapp.com/users/${this.state.username}`, obj)
       .then(resp => resp.json())
       .then(data => {
         console.log(data)
@@ -54,11 +54,12 @@ class FormContainer extends React.Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUserDataFromForm)
     };
-    fetch(`http://localhost:3000/users`, contentObj)
+    fetch(`https://map-quiz-backend.herokuapp.com/users`, contentObj)
       .then(resp => resp.json())
       .then(data => {
         if (data) {
           this.props.setUser(data.user);
+          window.localStorage.setItem('token', data.token)
           this.props.closeForm();
           this.setRedirect();
         } else {

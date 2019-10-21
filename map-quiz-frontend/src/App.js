@@ -20,7 +20,8 @@ class App extends React.Component {
 
   setUser = user => {
     this.setState({
-      user: user
+      user: user,
+
     });
   };
 
@@ -35,7 +36,7 @@ class App extends React.Component {
 
   componentDidMount() {
     if(localStorage.getItem('token')) {
-      fetch('http://localhost:3000/token', {headers: {"Authentication": `${localStorage.getItem("token")}`}}).then(resp => resp.json()).then(user => this.setUser(user))
+      fetch('https://map-quiz-backend.herokuapp.com/token', {headers: {"Authentication": `${localStorage.getItem("token")}`}}).then(resp => resp.json()).then(user => this.setUser(user))
 
     }
   }
